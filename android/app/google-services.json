@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "353471495187",
+    "project_id": "tagpet-7eda5",
+    "storage_bucket": "tagpet-7eda5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353471495187:android:e66349c99b2a4bb71053e6",
+        "android_client_info": {
+          "package_name": "com.anonymous.tagpet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9kiWuuFQOlYRDpCY6aC-13f4j2kftMXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
