@@ -1,0 +1,24 @@
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
+import { Welcome } from '../screens/welcome'
+import { SignIn } from '../screens/signIn'
+
+const Stack = createNativeStackNavigator();
+
+export const Routes = () => {
+    return(
+        <Stack.Navigator>
+            <Stack.Screen
+                name='Welcome'
+                component={Welcome}
+                options={{ headerShown: false}}
+            />
+
+            <Stack.Screen
+                name='SignIn'
+                component={SignIn}
+                options={{ headerShown: false}}
+            />
+        </Stack.Navigator>
+    )
+}

@@ -18,7 +18,7 @@ export const SignIn = () => {
 
     return (
         <S.Container>
-            <S.Title>ENTRAR</S.Title>
+            <S.Title>Tagpet</S.Title>
             <S.Form>
                 <Controller
                     control={control}
