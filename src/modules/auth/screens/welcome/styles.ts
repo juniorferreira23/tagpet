@@ -4,6 +4,7 @@ import normalize from "../../../../utils/Metrics";
 export const Container = styled.View`
     width: 100%;
     height: 100%;
+    padding: 0px ${normalize(32)}px;
 `;
 
 export const WrapperLogo = styled.View`
@@ -29,7 +30,6 @@ export const Image = styled.Image`
 
 export const WrapperText = styled.View`
     height: 15%;
-    padding: 0 ${normalize(32)}px;
     justify-content: center;
     border-radius: 30px 30px 0px 0px;
     background-color: #eee;
@@ -52,7 +52,8 @@ export const WrapperButton = styled.View`
 export const TouchableOpacity = styled.TouchableOpacity`
     background-color: #5CB15A;
     border-radius: 30px;
-    padding: ${normalize(10, "height")}px ${normalize(70)}px;
+    width: 100%;
+    padding: ${normalize(10, "height")}px 0;
     margin-top: 10px;
 `;
 
@@ -60,4 +61,5 @@ export const Text = styled.Text`
     color: white;
     font-size: 16px;
     font-weight: bold;
+    text-align: center;
 `;

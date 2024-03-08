@@ -18,7 +18,10 @@ export const SignIn = () => {
 
     return (
         <S.Container>
-            <S.Title>Tagpet</S.Title>
+            <S.WrapperLogo>
+                <S.Logo source={require("../../assets/logo.png")}
+                resizeMode="cover"/>
+            </S.WrapperLogo>
             <S.Form>
                 <Controller
                     control={control}
@@ -54,8 +57,21 @@ export const SignIn = () => {
                         </S.WrapperInput>
                     )}
                 />
-            <TouchableOpacity onPress={handleSubmit(handleSignInSubmit)}><Text>Entrar</Text></TouchableOpacity>
+                 <S.WrapperButton>
+                    <S.BtnLogin onPress={handleSubmit(handleSignInSubmit)}>
+                        <S.Text>Entrar</S.Text>
+                    </S.BtnLogin>
+                </S.WrapperButton>
+                <S.WrapperOptions>
+                    <S.BtnsOptions>
+                        <S.TextOptionsLeft>Esqueci minha senha</S.TextOptionsLeft>
+                    </S.BtnsOptions>
+                    <S.BtnsOptions>
+                        <S.TextOptionsRight>Registrar</S.TextOptionsRight>
+                    </S.BtnsOptions>
+                </S.WrapperOptions>
             </S.Form>
+           
         </S.Container>
     );
 }

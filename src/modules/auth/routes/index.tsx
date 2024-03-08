@@ -8,6 +8,7 @@ const Stack = createNativeStackNavigator();
 export const Routes = () => {
     return(
         <Stack.Navigator>
+
             <Stack.Screen
                 name='Welcome'
                 component={Welcome}
@@ -19,6 +20,7 @@ export const Routes = () => {
                 component={SignIn}
                 options={{ headerShown: false}}
             />
+            
         </Stack.Navigator>
     )
 }
