@@ -5,6 +5,7 @@ import { signUpUserFormSchema } from "./schemas";
 import { signUpUserFormType } from "./type";
 import { signUp } from "../../services/firebase/signUp";
 import * as S from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 export const SignUp = () => {
     const { control, handleSubmit, formState: { errors } } = useForm<signUpUserFormType>({
@@ -14,6 +15,8 @@ export const SignUp = () => {
     const handleSignInSubmit = (data: signUpUserFormType) => {
         signUp(data)
     }
+
+    const navigation = useNavigation();
 
     return (
         <S.Container>
@@ -80,7 +83,7 @@ export const SignUp = () => {
                         <S.Text>Registrar</S.Text>
                     </S.BtnLogin>
                 </S.WrapperButton>
-                <S.BtnsOptions>
+                <S.BtnsOptions onPress={() => navigation.navigate("SignIn")}>
                     <S.TextOptionsLeft>Voltar</S.TextOptionsLeft>
                 </S.BtnsOptions>
             </S.Form>
