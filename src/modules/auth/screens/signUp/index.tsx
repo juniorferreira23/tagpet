@@ -83,7 +83,7 @@ export const SignUp = () => {
                         <S.Text>Registrar</S.Text>
                     </S.BtnLogin>
                 </S.WrapperButton>
-                <S.BtnsOptions onPress={() => navigation.navigate("SignIn")}>
+                <S.BtnsOptions>
                     <S.TextOptionsLeft>Voltar</S.TextOptionsLeft>
                 </S.BtnsOptions>
             </S.Form>
