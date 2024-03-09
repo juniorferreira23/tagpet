@@ -1,31 +1,33 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import { Welcome } from '../screens/welcome'
+import { Onboarding } from '../screens/Onboarding'
 import { SignIn } from '../screens/signIn'
 import { SignUp } from '../screens/signUp'
 
-const Stack = createNativeStackNavigator();
+export type AuthStackParamList = {
+    Onboarding: undefined;
+    SignIn: undefined;
+    SignUp: undefined;
+};
 
-export const Routes = () => {
+const Stack = createNativeStackNavigator<AuthStackParamList>();
+
+export const AuthStack = () => {
     return(
-        <Stack.Navigator>
-
+        <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen
-                name='Welcome'
-                component={Welcome}
-                options={{ headerShown: false}}
+                name='Onboarding'
+                component={Onboarding}
             />
 
             <Stack.Screen
                 name='SignIn'
                 component={SignIn}
-                options={{ headerShown: false}}
             />
 
             <Stack.Screen
                 name='SignUp'
                 component={SignUp}
-                options={{ headerShown: false}}
             />
             
         </Stack.Navigator>

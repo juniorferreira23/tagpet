@@ -1,4 +1,3 @@
-import { Text, TouchableOpacity } from "react-native";
 import { Input } from "../../../../components/Input";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,8 +5,12 @@ import { signInUserFormSchema } from "./schemas";
 import { signInUserFormType } from "./type";
 import { signIn } from "../../services/firebase/signIn";
 import * as S from "./styles";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AuthStackParamList } from "../../routes";
 
-export const SignIn = () => {
+type Props = NativeStackScreenProps<AuthStackParamList, "SignIn">;
+
+export const SignIn = ({navigation}: Props) => {
     const { control, handleSubmit, formState: { errors } } = useForm<signInUserFormType>({
         resolver: zodResolver(signInUserFormSchema)
     });
@@ -66,7 +69,7 @@ export const SignIn = () => {
                     <S.BtnsOptions>
                         <S.TextOptionsLeft>Esqueci minha senha</S.TextOptionsLeft>
                     </S.BtnsOptions>
-                    <S.BtnsOptions>
+                    <S.BtnsOptions onPress={() => navigation.navigate("SignUp")}>
                         <S.TextOptionsRight>Registrar</S.TextOptionsRight>
                     </S.BtnsOptions>
                 </S.WrapperOptions>
