@@ -18,3 +18,6 @@ export const signUpUserFormSchema = z.object({
         })
         .min(6, "O campo senha deve possui ao menos 6 caracteres")
 })
+// .refine((data) => data.name.split(" ").length > 1, {
+//     message: "Só aceitamos nome composto"
+// })
