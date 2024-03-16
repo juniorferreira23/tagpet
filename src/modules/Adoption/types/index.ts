@@ -7,7 +7,7 @@ export interface ISaveAnimal {
     month?: string;
     breed: string;
     species: string;
-    image: string;
+    image: string | null;
     owner: string;
 }
 

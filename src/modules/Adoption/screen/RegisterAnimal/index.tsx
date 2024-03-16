@@ -9,23 +9,37 @@ import { Input } from "../../../../components/Input";
 import { Pressable } from "react-native";
 import { getImageGalery } from "../../../../utils/getImageGalery";
 import { useState } from "react";
+import { saveImage } from "../../services/saveImage";
+import { putAnimal } from "../../services/putData";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AdoptionStackParamList } from "../../routes";
 
-export const RegisterAnimal = () => {
+type Props = NativeStackScreenProps<AdoptionStackParamList, "RegisterAnimal">;
+
+export const RegisterAnimal = ({ navigation }: Props) => {
     const [image, setImage] = useState("");
     const { control, handleSubmit, formState: { errors }, setValue, getValues } = useForm<registerAnimalFormType>({
         resolver: zodResolver(registerAnimalFormSchema)
     });
 
-    const handleSignInSubmit = (data: registerAnimalFormType) => {
+    const handleSignInSubmit = async (data: registerAnimalFormType) => {
         const emailOwner = auth().currentUser?.email;
-        console.log(emailOwner)
         if (!emailOwner) return;
         const payload: ISaveAnimal = {
             owner: emailOwner,
             month: "0",
-            ...data
+            ...data,
+            image: null,
         }
-        saveAnimal(payload)
+        const animalId = await saveAnimal(payload);
+        handlerSubmitAndPutImage(animalId);
+        navigation.navigate("Home");
+    }
+
+    const handlerSubmitAndPutImage = async (animalId: string) => {
+        const animalUrl = await saveImage(image, animalId);
+        if (!animalUrl) return;
+        putAnimal({ image: animalUrl }, animalId);
     }
 
     const handlerPickerImage = async () => {

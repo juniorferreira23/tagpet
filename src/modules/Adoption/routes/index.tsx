@@ -6,23 +6,15 @@ import { RegisterAnimal } from "../screen/RegisterAnimal";
 export type AdoptionStackParamList = {
     Home: undefined;
     AnimalDetails: {
-        id: number;
+        id: string;
         name: string;
-        gender: string;
         age: number;
         month: number | null;
         breed: string;
-        type: string;
         image: string;
         owner: string;
-<<<<<<< HEAD
-        phone: string;
-        description: string;
-    }
-=======
     },
     RegisterAnimal: undefined;
->>>>>>> f0be4805d893f72fb576aa2c73af514ed4852efd
 }
 
 const Stack = createNativeStackNavigator<AdoptionStackParamList>();
