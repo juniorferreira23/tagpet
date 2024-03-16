@@ -1,4 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+<<<<<<< HEAD
 import { Text, Image } from "react-native";
 import { AdoptionStackParamList } from "../../routes";
 import * as S from "./styles";
@@ -7,6 +8,17 @@ type Props = NativeStackScreenProps<AdoptionStackParamList, "AnimalDetails">;
 
 export const AnimalDetails = ({route}: Props) => {
 
+=======
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import { AdoptionStackParamList } from "../../routes";
+import { getImageGalery } from "../../../../utils/getImageGalery";
+import { useState } from "react";
+
+type Props = NativeStackScreenProps<AdoptionStackParamList, "AnimalDetails">;
+
+export const AnimalDetails = ({ route }: Props) => {
+    const [image, setImage] = useState<string>("https://www.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-600nw-1037719192.jpg")
+>>>>>>> f0be4805d893f72fb576aa2c73af514ed4852efd
     const name = route.params.name
     const gender = route.params.gender
     const owner = route.params.owner
@@ -23,6 +35,7 @@ export const AnimalDetails = ({route}: Props) => {
     }
 
     return (
+<<<<<<< HEAD
         <S.Container>
             <S.WrapperImage>
                 <S.Photo source={require('../../assets/image default.jpg')} />
@@ -50,5 +63,35 @@ export const AnimalDetails = ({route}: Props) => {
                 </S.Buttom>
             </S.WrapperDescription>
         </S.Container>
+=======
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+            <Text style={{ color: "black", fontSize: 24 }}>{name}</Text>
+            <Text style={{ color: "black", fontSize: 24 }}>{age}</Text>
+            <TouchableOpacity
+                onPress={() => getImageGalery(setImage)}
+            >
+                <Text style={{ color: "black", fontSize: 24 }}>AQUI O BOTÃO</Text>
+            </TouchableOpacity>
+            {/* {
+                !!image && (
+                    <Image
+                        style={{
+                            width: 300,
+                            height: 400
+                        }}
+                        source={{ uri: image }}
+                    />
+                )
+            } */}
+            <Image
+                resizeMode="stretch"
+                style={{
+                    width: 300 / 1.5,
+                    height: 400 / 1.5
+                }}
+                source={{ uri: image }}
+            />
+        </View>
+>>>>>>> f0be4805d893f72fb576aa2c73af514ed4852efd
     );
 }

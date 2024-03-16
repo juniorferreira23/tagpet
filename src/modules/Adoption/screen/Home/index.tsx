@@ -1,11 +1,11 @@
-import { FlatList, SafeAreaView, StatusBar } from "react-native";
+import { FlatList, SafeAreaView, StatusBar, Text, TouchableOpacity } from "react-native";
 import * as S from "./styles";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { AdoptionStackParamList } from "../../routes";
 
 type Props = NativeStackScreenProps<AdoptionStackParamList, "Home">;
 
-export const Home = ({navigation}: Props) => {
+export const Home = ({ navigation }: Props) => {
     const data: {
         id: number;
         name: string;
@@ -88,12 +88,15 @@ export const Home = ({navigation}: Props) => {
 
     return (
         <SafeAreaView style={{ marginTop: StatusBar.currentHeight }}>
+            <TouchableOpacity onPress={() => navigation.navigate("RegisterAnimal")}>
+                <Text>CADASTRAR ANIMAL</Text>
+            </TouchableOpacity>
             <FlatList
                 data={data}
                 renderItem={({ item }) => (
-                    <S.Card 
-                    style={{ alignItems: "center", justifyContent: "center", flex: 1 }}
-                    onPress={() => navigation.navigate("AnimalDetails", item )}
+                    <S.Card
+                        style={{ alignItems: "center", justifyContent: "center", flex: 1 }}
+                        onPress={() => navigation.navigate("AnimalDetails", item)}
                     >
                         <S.AnimalImage source={{ uri: item.image }} />
                         <S.WrapperContent>
