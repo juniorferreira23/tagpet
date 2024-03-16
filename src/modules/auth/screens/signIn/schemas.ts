@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+//schemas isola a validação de parametros
+
 export const signInUserFormSchema = z.object({
     email: z
         .string({

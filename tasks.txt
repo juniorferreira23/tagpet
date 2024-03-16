@@ -1,1 +1,8 @@
-- Guardar as informações do usuário como endereço para usar na adoção do pet
+- variavel language passar para as outras telas
+- Guardar as informações do usuário como endereço e telefone para usar na adoção do pet
+- três documentos tabelas usuario(nome, email, telefone, e-mail, password), pet(nome, idade, genero, raça) e adoção(data, descrição, foiAdotado)
+
+- Menu vertical
+- Tela de registro do animal
+- Gerar link whatsapp e depois usar o botão para ir ao whatsapp
+- Estilizar a tela de adoção
