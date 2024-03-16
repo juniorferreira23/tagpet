@@ -7,12 +7,15 @@ export type AdoptionStackParamList = {
     AnimalDetails: {
         id: number;
         name: string;
+        gender: string;
         age: number;
         month: number | null;
         breed: string;
         type: string;
         image: string;
         owner: string;
+        phone: string;
+        description: string;
     }
 }
 

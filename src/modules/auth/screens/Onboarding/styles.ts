@@ -9,7 +9,7 @@ export const Container = styled.SafeAreaView`
 
 export const WrapperLogo = styled.View`
     width: 100%;
-    height: 20%;
+    height: 15%;
     align-items: center;
     justify-content: flex-end;
 `;
