@@ -4,25 +4,18 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { AuthStackParamList } from "../../routes";
 import { texts } from "./mock";
 import { useState } from "react";
+import { useTranslate } from "../../../../context/TranslateContext";
 
 // Acho que esse props pega as propriedades desejadas de uma tela e pode transferir para outra
 // definimos tbm o tipo que foi criado iniciamente em routes da pasta de auth e indicamos que tela é essa informando o nome configurado na pilha de navegação
 type Props = NativeStackScreenProps<AuthStackParamList, "Onboarding">;
 
-// definimos uma variavel de lingua, só não entendi pq o = "pt"?
-let language: "pt" | "en_usa" = "pt"
-
 // Como parametro do componente Onboarding informamos que um objeto chamado navigaation receberá as propriedades da tela setadas no type props
 // Mas não entendi direito o que seria essas props recebidas
 // Só sei que esse paramentro permite ser chamado nos OnPress para efetuar a navegação entre telas
 export const Onboarding = ({ navigation }: Props) => {
-    const [state, setState] = useState(true);
-
-    const handlerLanguage = () => {
-        // Jogada inteligente para um toogle, a variavel sempre vai receber o contrario dela no caso de uma variavel boleana
-        setState(!state)
-        language = state ? "pt" : "en_usa";
-    }
+    const [state, setState] = useState(false);
+    const { toggleLanguage, translateTo } = useTranslate();
 
     return (
         <S.Container>
@@ -39,19 +32,22 @@ export const Onboarding = ({ navigation }: Props) => {
             <S.WrapperText>
                 <S.Description>
                     <Text>
-                        {texts[language].welcome} 🐾
+                        {texts[translateTo].welcome} 🐾
                     </Text>
                 </S.Description>
             </S.WrapperText>
             <S.WrapperButton>
                 <S.TouchableOpacity
                     onPress={() => navigation.navigate("SignIn")}>
-                    <S.Text>{texts[language].btnTitle}</S.Text>
+                    <S.Text>{texts[translateTo].btnTitle}</S.Text>
                 </S.TouchableOpacity>
                 <S.TouchableOpacity
-                    onPress={() => handlerLanguage()}>
-                        
-                    <S.Text>{texts[language].btnTitleChangeLanguage}</S.Text>
+                    onPress={() => {
+                        setState(!state);
+                        toggleLanguage(!state); //evitar o delay inicial;
+                        }}>
+
+                    <S.Text>{texts[translateTo].btnTitleChangeLanguage}</S.Text>
                 </S.TouchableOpacity>
             </S.WrapperButton>
         </S.Container>
