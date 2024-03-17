@@ -18,6 +18,13 @@ export const Logo = styled.Image`
     width: 50%;
 `;
 
+export const Title = styled.Text`
+    font-size: 24px;
+    font-weight: 500;
+    color: #5CB15A;
+    padding: 30px 0;
+`;
+
 export const Form = styled.View`
     width: 100%;
     height: 50%;

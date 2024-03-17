@@ -43,7 +43,7 @@ export const SignUp = ({navigation}: Props) => {
                             </S.WrapperInput>
                         )}
                     /> */}
-
+                <S.Title>Registro</S.Title>
                 <Controller
                     control={control}
                     name="email"

@@ -7,11 +7,10 @@ export const Container = styled.SafeAreaView`
     padding: 0px ${normalize(32)}px;
 `;
 
-
 export const Form = styled.ScrollView`
     width: 100%;
-    row-gap: 15px;
-    flex: 1;
+    height: 100%;
+    padding-top: 30px;
 `;
 
 export const WrapperInput = styled.View`

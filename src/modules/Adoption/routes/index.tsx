@@ -13,6 +13,7 @@ export type AdoptionStackParamList = {
         breed: string;
         image: string;
         owner: string;
+        telefone: string;
     },
     RegisterAnimal: undefined;
 }

@@ -27,7 +27,7 @@ export const Onboarding = ({ navigation }: Props) => {
     return (
         <S.Container>
             <S.WrapperLogo>
-                <S.Logo source={require("../../assets/logo2.png")}
+                <S.Logo source={require("../../assets/logo.png")}
                     resizeMode="cover" />
             </S.WrapperLogo>
             <S.WrapperImage>

@@ -49,7 +49,7 @@ export const RegisterAnimal = ({ navigation }: Props) => {
 
     return (
         <S.Container>
-            <S.Form>
+            <S.Form contentContainerStyle={{rowGap: 15, justifyContent: "center"}}>
                 <Controller
                     control={control}
                     name="name"
@@ -140,7 +140,7 @@ export const RegisterAnimal = ({ navigation }: Props) => {
                 />
                 <S.WrapperButton>
                     <S.BtnLogin onPress={() => handlerPickerImage()}>
-                        <S.Text>SELECIONAR IMAGEM DA GALERIA</S.Text>
+                        <S.Text>Selecionar imagem da galeria</S.Text>
                     </S.BtnLogin>
                 </S.WrapperButton>
                 {
@@ -149,7 +149,7 @@ export const RegisterAnimal = ({ navigation }: Props) => {
                 }
                 <S.WrapperButton>
                     <S.BtnLogin onPress={handleSubmit(handleSignInSubmit)}>
-                        <S.Text>Registrar</S.Text>
+                        <S.Text>Cadastrar</S.Text>
                     </S.BtnLogin>
                 </S.WrapperButton>
             </S.Form>

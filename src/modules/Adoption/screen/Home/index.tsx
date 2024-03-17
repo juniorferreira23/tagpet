@@ -16,13 +16,12 @@ export const Home = ({ navigation }: Props) => {
 
     useEffect(() => {
         handlerAnimalsCloud();
-        console.log(animals)
     }, [])
 
     return (
         <SafeAreaView style={{ marginTop: StatusBar.currentHeight }}>
             <TouchableOpacity onPress={() => navigation.navigate("RegisterAnimal")}>
-                <Text>CADASTRAR ANIMAL</Text>
+                <Text>Cadastrar Animal</Text>
             </TouchableOpacity>
             <FlatList
                 data={animals}

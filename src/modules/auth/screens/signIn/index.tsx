@@ -24,8 +24,9 @@ export const SignIn = ({navigation}: Props) => {
             <S.WrapperLogo>
                 <S.Logo source={require("../../assets/logo.png")}
                 resizeMode="cover"/>
-            </S.WrapperLogo>
+            </S.WrapperLogo>            
             <S.Form>
+                <S.Title>Acesso</S.Title>
                 <Controller
                     control={control}
                     name="email"

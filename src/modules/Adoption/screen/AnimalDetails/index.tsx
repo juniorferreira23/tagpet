@@ -1,12 +1,11 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Text, Image } from "react-native";
+import { Image, Linking } from "react-native";
 import { AdoptionStackParamList } from "../../routes";
 import * as S from "./styles";
 
 type Props = NativeStackScreenProps<AdoptionStackParamList, "AnimalDetails">;
 
 export const AnimalDetails = ({ route }: Props) => {
-
 
     const name = route.params.name
     const gender = "female"
@@ -15,6 +14,7 @@ export const AnimalDetails = ({ route }: Props) => {
     const month = route.params.month
     const breed = route.params.breed
     const image = route.params.image
+    const telefone = route.params.telefone
 
     const handlerGender = (gender: string) => {
         return (<Image source={
@@ -22,6 +22,10 @@ export const AnimalDetails = ({ route }: Props) => {
                 ? require("../../assets/iconfemale.png")
                 : require("../../assets/iconmasculine.png")
         } />)
+    }
+
+    const linkWhatsapp = () => {
+        Linking.openURL(`https://wa.me/55${telefone}`)
     }
 
     return (
@@ -47,7 +51,7 @@ export const AnimalDetails = ({ route }: Props) => {
                 <S.TextDescription>
                     Estou buscando um novo lar para você, onde será amado e cuidado. Seu carinho será eterno em meu coração. Que sua próxima jornada seja repleta de amor e felicidade.
                 </S.TextDescription>
-                <S.Buttom>
+                <S.Buttom onPress={linkWhatsapp}>
                     <S.TextButtom>Entrar em contato</S.TextButtom>
                 </S.Buttom>
             </S.WrapperDescription>
