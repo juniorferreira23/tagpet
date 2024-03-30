@@ -19,10 +19,12 @@ export const Home = ({ navigation }: Props) => {
     }, [])
 
     return (
-        <SafeAreaView style={{ marginTop: StatusBar.currentHeight }}>
-            <TouchableOpacity onPress={() => navigation.navigate("RegisterAnimal")}>
-                <Text>Cadastrar Animal</Text>
-            </TouchableOpacity>
+        <S.Container style={{ marginTop: StatusBar.currentHeight }}>
+            <S.WrapperButton>
+                <S.BtnLogin onPress={() => navigation.navigate("RegisterAnimal")}>
+                    <S.TextBtn>Cadastrar Animal</S.TextBtn>
+                </S.BtnLogin>
+            </S.WrapperButton>
             <FlatList
                 data={animals}
                 renderItem={({ item }) => (
@@ -33,14 +35,14 @@ export const Home = ({ navigation }: Props) => {
                         <S.AnimalImage source={{ uri: item.image ?? "https://archwaycicero.greatheartsamerica.org/wp-content/uploads/sites/24/2016/11/default-placeholder.png" }} />
                         <S.WrapperContent>
                             <S.NameText style={{ color: "#0e0e0e" }}>{item.name}</S.NameText>
-                            <S.Text>{item?.species}</S.Text>
-                            <S.Text>{item?.breed}</S.Text>
-                            <S.Text>{item?.owner}</S.Text>
+                            <S.Text>espécie: {item?.species}</S.Text>
+                            <S.Text>raça: {item?.breed}</S.Text>
+                            <S.Text>Tutor: {item?.owner}</S.Text>
                         </S.WrapperContent>
                     </S.Card>
                 )
                 }
             />
-        </SafeAreaView>
+        </S.Container>
     );
 }

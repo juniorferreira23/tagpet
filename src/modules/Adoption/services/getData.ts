@@ -2,7 +2,7 @@ import firestore from "@react-native-firebase/firestore";
 import { ISaveAnimal } from "../types";
 
 export interface IResponseAnimal extends Partial<ISaveAnimal> {
-    id: string
+    id: string 
 }
 
 type Props = {

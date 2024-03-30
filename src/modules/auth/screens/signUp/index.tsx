@@ -7,6 +7,9 @@ import { signUp } from "../../services/firebase/signUp";
 import * as S from "./styles";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { AuthStackParamList } from "../../routes";
+import { useTranslate } from "../../../../context/TranslateContext";
+import { texts } from "./mock";
+
 
 type Props = NativeStackScreenProps<AuthStackParamList, "SignUp">;
 
@@ -18,6 +21,8 @@ export const SignUp = ({navigation}: Props) => {
     const handleSignInSubmit = (data: signUpUserFormType) => {
         signUp(data)
     }
+
+    const { toggleLanguage, translateTo } = useTranslate();
 
     return (
         <S.Container>
@@ -43,7 +48,7 @@ export const SignUp = ({navigation}: Props) => {
                             </S.WrapperInput>
                         )}
                     /> */}
-                <S.Title>Registro</S.Title>
+                <S.Title>{texts[translateTo].title}</S.Title>
                 <Controller
                     control={control}
                     name="email"
@@ -51,7 +56,7 @@ export const SignUp = ({navigation}: Props) => {
                         <S.WrapperInput>
                             <Input
                                 label="E-mail"
-                                placeholder="Digite seu E-mail"
+                                placeholder={texts[translateTo].inputEmail}
                                 onBlur={onBlur}
                                 value={value}
                                 onChangeText={onChange}
@@ -68,8 +73,8 @@ export const SignUp = ({navigation}: Props) => {
                     render={({ field: { onBlur, value, onChange } }) => (
                         <S.WrapperInput>
                             <Input
-                                label="Senha"
-                                placeholder="Digite sua senha"
+                                label={texts[translateTo].labelPassword}
+                                placeholder={texts[translateTo].inputPassword}
                                 onBlur={onBlur}
                                 value={value}
                                 onChangeText={onChange}
@@ -81,11 +86,11 @@ export const SignUp = ({navigation}: Props) => {
                 />
                  <S.WrapperButton>
                     <S.BtnLogin onPress={handleSubmit(handleSignInSubmit)}>
-                        <S.Text>Registrar</S.Text>
+                        <S.Text>{texts[translateTo].register}</S.Text>
                     </S.BtnLogin>
                 </S.WrapperButton>
                 <S.BtnsOptions onPress={() => navigation.navigate("SignIn")}>
-                    <S.TextOptionsLeft>Voltar</S.TextOptionsLeft>
+                    <S.TextOptionsLeft>{texts[translateTo].return}</S.TextOptionsLeft>
                 </S.BtnsOptions>
             </S.Form>
            

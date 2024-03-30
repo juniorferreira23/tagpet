@@ -1,5 +1,32 @@
 import { TouchableOpacityProps } from "react-native";
 import styled from "styled-components/native";
+// import { normalize } from "../../../../utils/Metrics"
+
+export const Container = styled.SafeAreaView`
+    width: 100%;
+    height: 100%;
+`;
+
+export const WrapperButton = styled.View`
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding:  10px 32px;
+`;
+
+export const BtnLogin = styled.TouchableOpacity`
+    background-color: #5CB15A;
+    border-radius: 30px;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px;
+`;
+
+export const TextBtn = styled.Text`
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+`;
 
 export const Card = styled.TouchableOpacity.attrs({
     shadowColor: "#000",
