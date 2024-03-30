@@ -2,6 +2,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Image, Linking } from "react-native";
 import { AdoptionStackParamList } from "../../routes";
 import * as S from "./styles";
+import { getUser } from "../../../../service/firebase/getUserData";
 
 type Props = NativeStackScreenProps<AdoptionStackParamList, "AnimalDetails">;
 
@@ -14,7 +15,7 @@ export const AnimalDetails = ({ route }: Props) => {
     const month = route.params.month
     const breed = route.params.breed
     const image = route.params.image
-    const telefone = route.params.telefone
+    const userId = route.params.user_id
 
     const handlerGender = (gender: string) => {
         return (<Image source={
@@ -24,8 +25,11 @@ export const AnimalDetails = ({ route }: Props) => {
         } />)
     }
 
-    const linkWhatsapp = () => {
-        Linking.openURL(`https://wa.me/55${telefone}`)
+    const linkWhatsapp = async() => {
+        console.log(userId)
+        const user = await getUser(userId)
+        const userCellPhone = user?.get("cell_phone")
+        Linking.openURL(`https://wa.me/55${userCellPhone}`)
     }
 
     return (

@@ -6,13 +6,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerAnimalFormSchema } from "./schemas";
 import auth from "@react-native-firebase/auth";
 import { Input } from "../../../../components/Input";
-import { Pressable } from "react-native";
 import { getImageGalery } from "../../../../utils/getImageGalery";
 import { useState } from "react";
 import { saveImage } from "../../services/saveImage";
 import { putAnimal } from "../../services/putData";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { AdoptionStackParamList } from "../../routes";
+import { getUser } from "../../../../service/firebase/getUserData";
 
 type Props = NativeStackScreenProps<AdoptionStackParamList, "RegisterAnimal">;
 
@@ -23,10 +23,13 @@ export const RegisterAnimal = ({ navigation }: Props) => {
     });
 
     const handleSignInSubmit = async (data: registerAnimalFormType) => {
-        const emailOwner = auth().currentUser?.email;
-        if (!emailOwner) return;
+        console.log("signsubmit")
+        const user = await getUser();
+        const userName = user?.get("name")
+        if (!userName) return;
+        console.log("depois")
         const payload: ISaveAnimal = {
-            owner: emailOwner,
+            owner: userName as string,
             month: "0",
             ...data,
             image: null,
@@ -46,6 +49,7 @@ export const RegisterAnimal = ({ navigation }: Props) => {
         await getImageGalery(setValue);
         setImage(getValues("image"))
     }
+
 
     return (
         <S.Container>
@@ -106,6 +110,24 @@ export const RegisterAnimal = ({ navigation }: Props) => {
 
                 <Controller
                     control={control}
+                    name="gender"
+                    render={({ field: { onBlur, value, onChange } }) => (
+                        <S.WrapperInput>
+                            <Input
+                                label="Sexo"
+                                placeholder="Qual o sexo do seu pet ?"
+                                onBlur={onBlur}
+                                value={value}
+                                onChangeText={onChange}
+                                errorMessage={errors.gender?.message}
+                                showError={!!errors.gender}
+                            />
+                        </S.WrapperInput>
+                    )}
+                />
+
+                <Controller
+                    control={control}
                     name="species"
                     render={({ field: { onBlur, value, onChange } }) => (
                         <S.WrapperInput>
@@ -134,6 +156,25 @@ export const RegisterAnimal = ({ navigation }: Props) => {
                                 onChangeText={onChange}
                                 errorMessage={errors.breed?.message}
                                 showError={!!errors.breed}
+                            />
+                        </S.WrapperInput>
+                    )}
+                />
+
+                 <Controller
+                    control={control}
+                    name="description"
+                    render={({ field: { onBlur, value, onChange } }) => (
+                        <S.WrapperInput>
+                            <Input
+                                label="Descrição"
+                                placeholder="Fale sobre seu pet."
+                                multiline
+                                onBlur={onBlur}
+                                value={value}
+                                onChangeText={onChange}
+                                errorMessage={errors.description?.message}
+                                showError={!!errors.description}
                             />
                         </S.WrapperInput>
                     )}

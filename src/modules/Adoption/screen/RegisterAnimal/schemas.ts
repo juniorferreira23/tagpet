@@ -25,6 +25,16 @@ export const registerAnimalFormSchema = z.object({
             required_error: "O campo da raça está vazio",
         })
         .min(1, "O campo da raça está vázio"),
+    gender: z
+        .string({
+            required_error: "O campo da sexo está vazio",
+        })
+        .min(1, "O campo da sexo está vázio"),
+    description: z
+        .string({
+            required_error: "O campo da descrição está vazio",
+        })
+        .min(1, "O campo da descrição está vázio"),
     image: z
         .string({
             required_error: "O campo da imagem está vazio",

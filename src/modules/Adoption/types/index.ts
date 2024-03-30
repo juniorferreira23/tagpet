@@ -9,6 +9,12 @@ export interface ISaveAnimal {
     species: string;
     image: string | null;
     owner: string;
+    gender: string;
+    description: string;
+}
+
+export interface ISaveAnimalRequest extends ISaveAnimal {
+    user_id: string;
 }
 
 
