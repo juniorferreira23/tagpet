@@ -21,7 +21,8 @@ export const AppTab = () => {
                 component={AdoptionStack}
                 options={{
                     tabBarIcon: ({ color, size }) => <Feather name="home" color={color} size={size} />,
-                    tabBarLabel: "Início"
+                    tabBarLabel: "Início",
+                    tabBarActiveTintColor: "#5CB15A"
                 }
                 }
             />
@@ -30,7 +31,8 @@ export const AppTab = () => {
                 component={AnimalDashboard}
                 options={{
                     tabBarIcon: ({ color, size }) => <Feather name="plus" color={color} size={size} />,
-                    tabBarLabel: "Painel"
+                    tabBarLabel: "Painel",
+                    tabBarActiveTintColor: "#5CB15A"
                 }}
             />
         </Tab.Navigator>

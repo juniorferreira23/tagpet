@@ -14,7 +14,7 @@ export const getImageGalery = async (setImage: setImageType) => {
     let result = await ImagerPicker.launchImageLibraryAsync({
         mediaTypes: ImagerPicker.MediaTypeOptions.Images,
         allowsEditing: true,
-        aspect: [16, 8],
+        aspect: [10, 8],
         quality: 1,
     });
 

@@ -22,7 +22,7 @@ export const SignIn = ({navigation}: Props) => {
         signIn(data)
     }
 
-    const { toggleLanguage, translateTo } = useTranslate();
+    const { translateTo } = useTranslate();
 
     return (
         <S.Container>

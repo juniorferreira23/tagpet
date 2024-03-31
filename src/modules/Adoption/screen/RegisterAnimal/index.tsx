@@ -113,8 +113,8 @@ export const RegisterAnimal = ({ navigation }: Props) => {
                     render={({ field: { onBlur, value, onChange } }) => (
                         <S.WrapperInput>
                             <Input
-                                label="Sexo"
-                                placeholder="Qual o sexo do seu pet ?"
+                                label="Genêro"
+                                placeholder="Qual o genêro do seu pet ?"
                                 onBlur={onBlur}
                                 value={value}
                                 onChangeText={onChange}

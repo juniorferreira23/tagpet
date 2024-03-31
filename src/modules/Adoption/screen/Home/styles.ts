@@ -7,26 +7,11 @@ export const Container = styled.SafeAreaView`
     height: 100%;
 `;
 
-export const WrapperButton = styled.View`
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding:  10px 32px;
-`;
-
-export const BtnLogin = styled.TouchableOpacity`
-    background-color: #5CB15A;
-    border-radius: 30px;
-    width: 100%;
-    padding: 10px 0;
-    margin-top: 10px;
-`;
-
-export const TextBtn = styled.Text`
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-`;
+// export const WrapperButton = styled.View`
+//     align-items: flex-start;
+//     justify-content: flex-start;
+//     padding:  10px 32px;
+// `;
 
 export const Card = styled.TouchableOpacity.attrs({
     shadowColor: "#000",
@@ -42,6 +27,7 @@ export const Card = styled.TouchableOpacity.attrs({
     background-color: white;
     margin-bottom: 10px;
     flex-direction: row;
+    padding: 10px 0
 `;
 
 export const NameText = styled.Text`
@@ -56,12 +42,14 @@ export const Text = styled.Text`
 `;
 
 export const WrapperContent = styled.View`
+    row-gap: 10px;
 
 `;
 
 export const AnimalImage = styled.Image.attrs({
-    resizeMode: "contain"
+    resizeMode: "cover"
 })`
     width: 200px;
-    height: 200px;
+    height: 160px;
+    border-radius: 10px;
 `;

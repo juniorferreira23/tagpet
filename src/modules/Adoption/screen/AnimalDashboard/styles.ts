@@ -7,11 +7,12 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const ContentContainer = styled.View`
-    background-color: #D9D9D9;
+    background-color: rgba(92, 177, 90, 0.7);
     padding: 16px;
     border-radius: 20px;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 10px;
 `;
 
 export const WrapperImagemAndContent = styled.View`
@@ -21,6 +22,10 @@ export const WrapperImagemAndContent = styled.View`
 
 export const WrapperContent = styled.View`
     justify-content: space-between;
+`;
+
+export const Text = styled.Text`
+    color: white;
 `;
 
 export const AnimalImage = styled.Image.attrs({

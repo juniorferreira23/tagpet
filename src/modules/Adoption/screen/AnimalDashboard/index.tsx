@@ -24,10 +24,10 @@ export const AnimalDashboard = () => {
             source={{ uri: item.image ?? "https://archwaycicero.greatheartsamerica.org/wp-content/uploads/sites/24/2016/11/default-placeholder.png" }}
           />
           <S.WrapperContent>
-            <Text>Nome: {item.name}</Text>
-            <Text>Especie: {item.species}</Text>
-            <Text>Raça: {item.breed}</Text>
-            <Text>Genero: {item.gender}</Text>
+            <S.Text>Nome: {item.name}</S.Text>
+            <S.Text>Especie: {item.species}</S.Text>
+            <S.Text>Raça: {item.breed}</S.Text>
+            <S.Text>Genero: {item.gender}</S.Text>
           </S.WrapperContent>
         </S.WrapperImagemAndContent>
         <S.WrapperIconsButtons>
@@ -37,7 +37,7 @@ export const AnimalDashboard = () => {
           <TouchableOpacity
             onPress={() => putAnimal({adopted: true}, item.id)}
           >
-            <Feather name="check-circle" color={"#0D9E00"} size={25} />
+            <Feather name="check-circle" color={"#0f6307"} size={25} />
           </TouchableOpacity>
         </S.WrapperIconsButtons>
       </S.ContentContainer>
