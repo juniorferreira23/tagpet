@@ -6,7 +6,7 @@ import { getUser } from "../../../../service/firebase/getUserData";
 
 type Props = NativeStackScreenProps<AdoptionStackParamList, "AnimalDetails">;
 
-export const AnimalDetails = ({ route }: Props) => {
+export const AnimalDetails = ({ route, navigation }: Props) => {
 
     const name = route.params.name
     const gender = "female"
@@ -26,7 +26,6 @@ export const AnimalDetails = ({ route }: Props) => {
     }
 
     const linkWhatsapp = async() => {
-        console.log(userId)
         const user = await getUser(userId)
         const userCellPhone = user?.get("cell_phone")
         Linking.openURL(`https://wa.me/55${userCellPhone}`)

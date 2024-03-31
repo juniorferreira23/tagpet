@@ -10,6 +10,7 @@ export const saveAnimal = async (payload: ISaveAnimal) => {
             ...payload,
             user_id: userId,
         } as ISaveAnimalRequest;
+        console.log(payloadAnimal)
         const response = await firestore().collection('Animal').add(payloadAnimal);
         return response.id;
     } catch (error) {

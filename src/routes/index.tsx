@@ -1,9 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { AuthStack } from '../modules/auth/routes';
 import { StatusBar } from 'expo-status-bar';
-import { AdoptionStack } from '../modules/Adoption/routes';
+import { AdoptionRootNavigator } from '../modules/Adoption/routes';
 import { useEffect, useState } from 'react';
-import auth, {FirebaseAuthTypes} from "@react-native-firebase/auth"
+import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth"
 
 export const RootNavigator = () => {
     const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
@@ -23,7 +23,7 @@ export const RootNavigator = () => {
             {
                 user ?
                     (
-                        <AdoptionStack />
+                        <AdoptionRootNavigator />
                     ) : (
                         <AuthStack />
                     )

@@ -1,46 +1,38 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Feather } from "@expo/vector-icons"; 
+import { AdoptionStack, AdoptionStackParamList } from "./stack.routes";
+import { AnimalDashboard } from "../screen/AnimalDashboard";
+import { Feather } from "@expo/vector-icons";
 
-import { Home } from "../screen/Home";
-import { RegisterAnimal } from "../screen/RegisterAnimal";
-
-export type AdoptionStackParamList = {
-    Home: undefined;
-    AnimalDetails: {
-        id: string;
-        name: string;
-        age: number;
-        month: number | null;
-        breed: string;
-        image: string;
-        owner: string;
-        user_id: string;
-    },
-    RegisterAnimal: undefined;
+export type AdoptionTabParamList = {
+    AdoptionStack: AdoptionStackParamList;
+    AnimalDashboard: undefined;
 }
 
-const Tab = createBottomTabNavigator<AdoptionStackParamList>();
+const Tab = createBottomTabNavigator<AdoptionTabParamList>();
 
-export default function TabRoutes(){
+export const AppTab = () => {
     return (
-        <Tab.Navigator screenOptions={{ headerShown: false}}>
-            <Tab.Screen 
-                name="Home" 
-                component={Home} 
+        <Tab.Navigator
+            initialRouteName="AdoptionStack"
+            screenOptions={{ headerShown: false }}
+        >
+            <Tab.Screen
+                name="AdoptionStack"
+                component={AdoptionStack}
                 options={{
-                    tabBarIcon: ({color, size}) => <Feather name="home" color={color} size={size}/>,
+                    tabBarIcon: ({ color, size }) => <Feather name="home" color={color} size={size} />,
                     tabBarLabel: "Início"
                 }
-            }/>
-
-            <Tab.Screen 
-                name="RegisterAnimal" 
-                component={RegisterAnimal}
+                }
+            />
+            <Tab.Screen
+                name="AnimalDashboard"
+                component={AnimalDashboard}
                 options={{
-                    tabBarIcon: ({color, size}) => <Feather name="plus" color={color} size={size}/>,
-                    tabBarLabel: "Cadastrar Adoção"
+                    tabBarIcon: ({ color, size }) => <Feather name="plus" color={color} size={size} />,
+                    tabBarLabel: "Painel"
                 }}
             />
         </Tab.Navigator>
-    )
+    );
 }

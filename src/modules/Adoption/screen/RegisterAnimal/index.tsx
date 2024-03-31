@@ -4,7 +4,6 @@ import { ISaveAnimal, registerAnimalFormType } from "../../types";
 import * as S from "./styles"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerAnimalFormSchema } from "./schemas";
-import auth from "@react-native-firebase/auth";
 import { Input } from "../../../../components/Input";
 import { getImageGalery } from "../../../../utils/getImageGalery";
 import { useState } from "react";
@@ -27,11 +26,11 @@ export const RegisterAnimal = ({ navigation }: Props) => {
         const user = await getUser();
         const userName = user?.get("name")
         if (!userName) return;
-        console.log("depois")
         const payload: ISaveAnimal = {
-            owner: userName as string,
-            month: "0",
             ...data,
+            owner: userName as string,
+            adopted: false,
+            month: data.month ?? "0",
             image: null,
         }
         const animalId = await saveAnimal(payload);

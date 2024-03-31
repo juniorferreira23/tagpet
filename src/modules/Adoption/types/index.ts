@@ -11,6 +11,7 @@ export interface ISaveAnimal {
     owner: string;
     gender: string;
     description: string;
+    adopted: boolean;
 }
 
 export interface ISaveAnimalRequest extends ISaveAnimal {

@@ -1,36 +1,37 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Feather } from "@expo/vector-icons";
+import { DrawerContentComponentProps, DrawerContentScrollView, DrawerItem, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
+import { RegisterAnimal } from '../screen/RegisterAnimal';
+import { Home } from '../screen/Home';
 
-import TabRoutes from "./tab.routes";
-
-export type AdoptionStackParamList = {
-  AnimalsLine: undefined;
-  AnimalDetails: {
-      id: string;
-      name: string;
-      age: number;
-      month: number | null;
-      breed: string;
-      image: string;
-      owner: string;
-      user_id: string;
-  },
-  RegisterAnimal: undefined;
+export type AdoptionDrawerParamList = {
+    RegisterAnimal: undefined;
+    Home: undefined;
 }
 
-const Drawer = createDrawerNavigator<AdoptionStackParamList>();
+const CustomDrawerContent = (props: DrawerContentComponentProps) => {
+    return (
+        <DrawerContentScrollView {...props}>
+            <DrawerItemList {...props} />
+            <DrawerItem label={"Sair"} onPress={() => console.log("Saiu")} /> 
+        </DrawerContentScrollView>
+    );
+}
 
-export default function DrawerRoutes() {
-  return (
-    <Drawer.Navigator initialRouteName='AnimalsLine' screenOptions={{ title: ' '}}>
-      <Drawer.Screen 
-        name="AnimalsLine" 
-        component={TabRoutes} 
-        options={{
-          drawerIcon: ({ color, size }) => <Feather name="home" color={color} size={size}/>,
-          drawerLabel: "Home"
-        }}
-      />
-    </Drawer.Navigator>
-  );
+const Drawer = createDrawerNavigator<AdoptionDrawerParamList>();
+
+export const HomeDrawer = () => {
+    return (
+        <Drawer.Navigator
+            initialRouteName='Home'
+            drawerContent={props => <CustomDrawerContent {...props} />}
+        >
+            <Drawer.Screen
+                name="Home"
+                component={Home}
+            />
+            <Drawer.Screen
+                name='RegisterAnimal'
+                component={RegisterAnimal}
+            />
+        </Drawer.Navigator>
+    );
 }

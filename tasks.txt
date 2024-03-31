@@ -1,6 +1,12 @@
-- Menu vertical
 - variavel language passar para as outras telas Ferreira
 - Tela de registro do animal
-- Estilizar a tela de adoção
+- Estilizar a tela de Painel
+- Estilizar a tela de listagem de adoção
 
-- três documentos tabelas adoção(data, descrição, foiAdotado) Amanhã
+Prox aula
+
+- Editar o Animal
+- Sair da conta
+- Emitir Alerta de animal perdido
+
+- Pesquisa por categoria

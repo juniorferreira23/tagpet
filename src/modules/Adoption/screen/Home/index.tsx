@@ -1,11 +1,11 @@
 import { FlatList, SafeAreaView, StatusBar, Text, TouchableOpacity } from "react-native";
 import * as S from "./styles";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { DrawerScreenProps } from "@react-navigation/drawer";
 import { AdoptionStackParamList } from "../../routes";
 import { IResponseAnimal, getAnimal } from "../../services/getData";
 import { useEffect, useState } from "react";
 
-type Props = NativeStackScreenProps<AdoptionStackParamList, "Home">;
+type Props = DrawerScreenProps<AdoptionStackParamList, "Home">;
 
 export const Home = ({ navigation }: Props) => {
     const [animals, setAnimals] = useState<IResponseAnimal[]>([]);
@@ -21,8 +21,8 @@ export const Home = ({ navigation }: Props) => {
     return (
         <S.Container style={{ marginTop: StatusBar.currentHeight }}>
             <S.WrapperButton>
-                <S.BtnLogin onPress={() => navigation.navigate("RegisterAnimal")}>
-                    <S.TextBtn>Cadastrar Animal</S.TextBtn>
+                <S.BtnLogin onPress={() => console.log(navigation.getState())}>
+                    <S.TextBtn>Abrir Navegação Lateral</S.TextBtn>
                 </S.BtnLogin>
             </S.WrapperButton>
             <FlatList
