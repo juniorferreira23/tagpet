@@ -9,7 +9,7 @@ export const Container = styled.SafeAreaView`
 
 export const WrapperLogo = styled.View`
     width: 100%;
-    height: 20%;
+    height: 15%;
     align-items: center;
     justify-content: flex-end;
 `;
@@ -18,30 +18,38 @@ export const Logo = styled.Image`
     width: 50%;
 `;
 
-export const Title = styled.Text`
-    font-size: 24px;
-    font-weight: 500;
-    color: #5CB15A;
-    padding: 30px 0;
-`;
-
-export const Form = styled.View`
-    width: 100%;
+export const WrapperImage = styled.View`
     height: 50%;
-    justify-content: center;
-    row-gap: 15px;
-`;
-
-export const WrapperInput = styled.View`
-    width: 100%;
-`;
-
-export const WrapperButton = styled.View`
-    align-items: flex-start;
     justify-content: flex-start;
 `;
 
-export const BtnLogin = styled.TouchableOpacity`
+export const Image = styled.Image`
+    width: 100%;
+    height: 100%;
+`;
+
+export const WrapperText = styled.View`
+    height: 15%;
+    justify-content: center;
+    border-radius: 30px 30px 0px 0px;
+    background-color: #eee;
+`;
+
+export const Description = styled.Text`
+    color: #666;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: justify;
+`;
+
+export const WrapperButton = styled.View`
+    height: 15%;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #eee;
+`;
+
+export const TouchableOpacity = styled.TouchableOpacity`
     background-color: #5CB15A;
     border-radius: 30px;
     width: 100%;
@@ -54,26 +62,4 @@ export const Text = styled.Text`
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-`;
-
-export const WrapperOptions = styled.View`
-    flex-direction: row;
-`;
-
-export const BtnsOptions = styled.TouchableOpacity`
-    background-color: None;
-    width: 49%;
-`;
-
-export const TextOptionsLeft = styled.Text`
-    color: #666;
-    font-size: 14px;
-    font-weight: bold;
-`;
-
-export const TextOptionsRight = styled.Text`
-    color: #666;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: right;
 `;

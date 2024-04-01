@@ -1,4 +1,3 @@
-import { Text, TouchableOpacity } from "react-native";
 import { Input } from "../../../../components/Input";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,8 +5,15 @@ import { signInUserFormSchema } from "./schemas";
 import { signInUserFormType } from "./type";
 import { signIn } from "../../services/firebase/signIn";
 import * as S from "./styles";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AuthStackParamList } from "../../routes";
+import { useTranslate } from "../../../../context/TranslateContext";
+import { texts } from "./mock";
 
-export const SignIn = () => {
+
+type Props = NativeStackScreenProps<AuthStackParamList, "SignIn">;
+
+export const SignIn = ({navigation}: Props) => {
     const { control, handleSubmit, formState: { errors } } = useForm<signInUserFormType>({
         resolver: zodResolver(signInUserFormSchema)
     });
@@ -16,10 +22,16 @@ export const SignIn = () => {
         signIn(data)
     }
 
+    const { translateTo } = useTranslate();
+
     return (
         <S.Container>
-            <S.Title>ENTRAR</S.Title>
+            <S.WrapperLogo>
+                <S.Logo source={require("../../assets/logo.png")}
+                resizeMode="cover"/>
+            </S.WrapperLogo>            
             <S.Form>
+                <S.Title>{texts[translateTo].title}</S.Title>
                 <Controller
                     control={control}
                     name="email"
@@ -27,7 +39,7 @@ export const SignIn = () => {
                         <S.WrapperInput>
                             <Input
                                 label="E-mail"
-                                placeholder="Digite seu E-mail"
+                                placeholder={texts[translateTo].inputEmail}
                                 onBlur={onBlur}
                                 value={value}
                                 onChangeText={onChange}
@@ -43,8 +55,8 @@ export const SignIn = () => {
                     render={({ field: { onBlur, value, onChange } }) => (
                         <S.WrapperInput>
                             <Input
-                                label="Senha"
-                                placeholder="Digite sua senha"
+                                label={texts[translateTo].labelPassword}
+                                placeholder={texts[translateTo].inputPassword}
                                 onBlur={onBlur}
                                 value={value}
                                 onChangeText={onChange}
@@ -54,8 +66,21 @@ export const SignIn = () => {
                         </S.WrapperInput>
                     )}
                 />
-            <TouchableOpacity onPress={handleSubmit(handleSignInSubmit)}><Text>Entrar</Text></TouchableOpacity>
+                 <S.WrapperButton>
+                    <S.BtnLogin onPress={handleSubmit(handleSignInSubmit)}>
+                        <S.Text>{texts[translateTo].signIn}</S.Text>
+                    </S.BtnLogin>
+                </S.WrapperButton>
+                <S.WrapperOptions>
+                    <S.BtnsOptions>
+                        <S.TextOptionsLeft>{texts[translateTo].forgotPassword}</S.TextOptionsLeft>
+                    </S.BtnsOptions>
+                    <S.BtnsOptions onPress={() => navigation.navigate("SignUp")}>
+                        <S.TextOptionsRight>{texts[translateTo].register}</S.TextOptionsRight>
+                    </S.BtnsOptions>
+                </S.WrapperOptions>
             </S.Form>
+           
         </S.Container>
     );
 }

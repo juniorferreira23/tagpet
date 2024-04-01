@@ -1,35 +1,16 @@
 import styled from "styled-components/native";
 import normalize from "../../../../utils/Metrics";
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.ScrollView`
     width: 100%;
     height: 100%;
     padding: 0px ${normalize(32)}px;
 `;
 
-export const WrapperLogo = styled.View`
+export const Form = styled.ScrollView`
     width: 100%;
-    height: 20%;
-    align-items: center;
-    justify-content: flex-end;
-`;
-
-export const Logo = styled.Image`
-    width: 50%;
-`;
-
-export const Title = styled.Text`
-    font-size: 24px;
-    font-weight: 500;
-    color: #5CB15A;
-    padding: 30px 0;
-`;
-
-export const Form = styled.View`
-    width: 100%;
-    height: 50%;
-    justify-content: center;
-    row-gap: 15px;
+    height: 100%;
+    padding-top: 30px;
 `;
 
 export const WrapperInput = styled.View`
@@ -56,13 +37,9 @@ export const Text = styled.Text`
     text-align: center;
 `;
 
-export const WrapperOptions = styled.View`
-    flex-direction: row;
-`;
-
 export const BtnsOptions = styled.TouchableOpacity`
     background-color: None;
-    width: 49%;
+    padding-top: ${normalize(10)}px;
 `;
 
 export const TextOptionsLeft = styled.Text`
@@ -76,4 +53,9 @@ export const TextOptionsRight = styled.Text`
     font-size: 14px;
     font-weight: bold;
     text-align: right;
+`;
+
+export const ImageAnimal = styled.Image.attrs({resizeMode: "contain"})`
+    width: 200px;
+    height: ${(4 * 200) / 3}px;
 `;

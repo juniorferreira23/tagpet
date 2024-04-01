@@ -1,21 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { signIn } from './src/modules/auth/services/firebase/signIn';
-import { SignIn } from './src/modules/auth/screens/signIn';
+import 'react-native-gesture-handler';
+import { TranslateProvider } from './src/context/TranslateContext';
+import { RootNavigator } from './src/routes';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SignIn />
-    </View>
+    <TranslateProvider>
+      <RootNavigator />
+    </TranslateProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

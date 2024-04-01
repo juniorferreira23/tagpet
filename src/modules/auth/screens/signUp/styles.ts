@@ -1,33 +1,26 @@
 import styled from "styled-components/native";
 import normalize from "../../../../utils/Metrics";
+import { StatusBar } from "react-native";
 
-export const Container = styled.SafeAreaView`
-    width: 100%;
-    height: 100%;
-    padding: 0px ${normalize(32)}px;
+export const Container = styled.ScrollView`
+    flex: 1;
+    padding: ${normalize(32)}px ${normalize(32)}px 0px ${normalize(32)}px;
 `;
 
 export const WrapperLogo = styled.View`
-    width: 100%;
-    height: 20%;
     align-items: center;
     justify-content: flex-end;
 `;
 
-export const Logo = styled.Image`
-    width: 50%;
-`;
+export const Logo = styled.Image``;
 
 export const Title = styled.Text`
     font-size: 24px;
     font-weight: 500;
     color: #5CB15A;
-    padding: 30px 0;
 `;
 
 export const Form = styled.View`
-    width: 100%;
-    height: 50%;
     justify-content: center;
     row-gap: 15px;
 `;
@@ -56,13 +49,9 @@ export const Text = styled.Text`
     text-align: center;
 `;
 
-export const WrapperOptions = styled.View`
-    flex-direction: row;
-`;
-
 export const BtnsOptions = styled.TouchableOpacity`
     background-color: None;
-    width: 49%;
+    padding-top: ${normalize(10)}px;
 `;
 
 export const TextOptionsLeft = styled.Text`

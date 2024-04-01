@@ -1,0 +1,12 @@
+- variavel language passar para as outras telas Ferreira
+- Tela de registro do animal
+- Estilizar a tela de Painel [x]
+- Estilizar a tela de listagem de adoção [x]
+
+Prox aula
+
+- Editar o Animal
+- Sair da conta
+- Emitir Alerta de animal perdido
+
+- Pesquisa por categoria
