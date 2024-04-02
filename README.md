@@ -7,7 +7,7 @@
 - Pedro Andrade da Silva Neto - 01603590
 - Flavio José de Albuquerque Barbosa - 01648810
 - Davi dos Santos Lima - 01358277
-- Flavio José de Albuquerque Barbosa - 01648810
+- Kauan Cavalcanti de Santana - 01692066
 - Paulo Vinícius Feliciano de Souza - 01618133
 - Rosilene da Silva Lima - 01619051
 - Lucas Maia Sivini - 01616874

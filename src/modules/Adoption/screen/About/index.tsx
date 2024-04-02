@@ -17,7 +17,7 @@ export const About = () => {
             <Text>Pedro Andrade da Silva Neto - 01603590</Text>
             <Text>Flavio José de Albuquerque Barbosa - 01648810</Text>
             <Text>Davi dos Santos Lima - 01358277</Text>
-            <Text>Flavio José de Albuquerque Barbosa - 01648810</Text>
+            <Text>Kauan Cavalcanti de Santana - 01692066</Text>
             <Text>Paulo Vinícius Feliciano de Souza - 01618133</Text>
             <Text>Rosilene da Silva Lima - 01619051</Text>
             <Text>Lucas Maia Sivini - 01616874</Text>
