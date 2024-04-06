@@ -13,6 +13,7 @@ export type AdoptionStackParamList = {
         user_id: string;
     },
     RegisterAnimal: undefined;
+    UpdateAnimal: {id: string};
 }
 
 

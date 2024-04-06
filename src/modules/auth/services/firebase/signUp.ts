@@ -12,6 +12,7 @@ export const signUp = (payload: signUpUserFormType) => {
                 cell_phone: payload.cell_phone,
                 city: payload.city,
                 zip_code: payload.zip_code,
+                fcm_token: null
             }
             saveUserData(payloadUser);
         })

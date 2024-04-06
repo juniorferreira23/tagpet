@@ -6,6 +6,7 @@ import { RegisterAnimal } from '../screen/RegisterAnimal';
 import { About } from '../screen/About';
 import { useTranslate } from "../../../context/TranslateContext";
 import { useState } from "react";
+import { logoutFirebase } from '../../../service/firebase/logout';
 
 
 export type AdoptionDrawerParamList = {
@@ -16,15 +17,22 @@ export type AdoptionDrawerParamList = {
 
 const CustomDrawerContent = (props: DrawerContentComponentProps) => {
     const [state, setState] = useState(false);
-    const { toggleLanguage, translateTo } = useTranslate();
+    const { toggleLanguage } = useTranslate();
 
     return (
         <DrawerContentScrollView {...props}>
             <DrawerItemList {...props} />
-            <DrawerItem label={"Mudar para Idioma"} onPress={() => {
-                setState(!state);
-                toggleLanguage(!state)}} /> 
-            <DrawerItem label={"Sair"} onPress={() => console.log("Saiu")} /> 
+            <DrawerItem
+                label={"Mudar para Idioma"}
+                onPress={() => {
+                    setState(!state);
+                    toggleLanguage(!state)
+                }}
+            />
+            <DrawerItem
+                label={"Sair"}
+                onPress={() => logoutFirebase()}
+            />
         </DrawerContentScrollView>
     );
 }
@@ -36,7 +44,7 @@ export const HomeDrawer = () => {
         <Drawer.Navigator
             initialRouteName='Home'
             drawerContent={props => <CustomDrawerContent {...props} />}
-            screenOptions={{ title: ' '}}
+            screenOptions={{ title: ' ' }}
         >
             <Drawer.Screen
                 name="Home"
