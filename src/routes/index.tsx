@@ -12,10 +12,10 @@ export const RootNavigator = () => {
         setUser(user);
     }
 
-    useEffect(() => {
-        const subscribe = auth().onAuthStateChanged(handlerAuthStateChange);
-        return subscribe;
-    }, [])
+    // useEffect(() => {
+    //     const subscribe = auth().onAuthStateChanged(handlerAuthStateChange);
+    //     return subscribe;
+    // }, [])
 
     return (
         <NavigationContainer>
