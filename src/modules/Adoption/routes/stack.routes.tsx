@@ -38,6 +38,7 @@ export const AdoptionStack = () => {
             <StackAd.Screen
                 name="AnimalDetails"
                 component={AnimalDetails}
+                options={{headerShown: true}}
             />
         </StackAd.Navigator>
     );
