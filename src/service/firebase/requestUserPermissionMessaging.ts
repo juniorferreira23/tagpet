@@ -1,4 +1,11 @@
-import messaging from "@react-native-firebase/messaging";
+import messaging, {FirebaseMessagingTypes} from "@react-native-firebase/messaging";
+import {PermissionsAndroid, Platform, PermissionStatus} from 'react-native';
+import { updateUserData } from "./updateUserData";
+
+export const saveFCMToken = async () => {
+    const token = await messaging().getToken();
+    return token;
+}
 
 export const requestPermissionPushNotification = async () => {
     let initialAuthStatus = await messaging().hasPermission();
@@ -6,13 +13,21 @@ export const requestPermissionPushNotification = async () => {
         initialAuthStatus === messaging.AuthorizationStatus.AUTHORIZED
         || initialAuthStatus === messaging.AuthorizationStatus.PROVISIONAL
     if(!enabled) {
-        const authStatus = await messaging().requestPermission();
-        enabled =
-            authStatus === messaging.AuthorizationStatus.AUTHORIZED
-            || authStatus === messaging.AuthorizationStatus.PROVISIONAL
+        const authStatus: PermissionStatus | FirebaseMessagingTypes.AuthorizationStatus = Platform.OS === "android" 
+        ? await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS)
+        : await messaging().requestPermission();
+        if(typeof enabled === "number") {
+            enabled =
+                authStatus === messaging.AuthorizationStatus.AUTHORIZED
+                || authStatus === messaging.AuthorizationStatus.PROVISIONAL
+        } else {
+            enabled = 
+                authStatus === "granted"
+        }
     }
     if (enabled) {
-        console.log('Usuario autorizou as notificações:')
+        const token = await saveFCMToken();
+        updateUserData({fcm_token: token});
     }
 }
 

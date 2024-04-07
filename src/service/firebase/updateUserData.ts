@@ -1,8 +1,8 @@
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
-import { IUserData } from '../../types';
+import { IUserData } from '../../modules/auth/types';
 
-export const saveUserData = async (payload: IUserData) => {
+export const updateUserData = async (payload: Partial<IUserData>) => {
     try {
         const userId = auth().currentUser?.uid
         await firestore().collection('Users').doc(userId).set(payload);

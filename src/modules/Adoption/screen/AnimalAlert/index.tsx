@@ -6,10 +6,15 @@ import { alertAnimalFormSchema } from "./schema";
 import { z } from "zod";
 import axios from "axios";
 import { getUser } from "../../../../service/firebase/getUserData";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AdoptionStackParamList } from "../../routes";
+import { AdoptionDrawerParamList } from "../../routes/drawer.routes";
 
 type alertAnimalFormType = z.infer<typeof alertAnimalFormSchema>
 
-export const AnimalAlert = () => {
+type Props = NativeStackScreenProps<AdoptionDrawerParamList, "AnimalAlert">;
+
+export const AnimalAlert = ({ navigation }: Props) => {
 
     const { control, handleSubmit, formState: { errors }, setValue, getValues } = useForm<alertAnimalFormType>({
         resolver: zodResolver(alertAnimalFormSchema)
@@ -23,13 +28,14 @@ export const AnimalAlert = () => {
     const handleAlertSubmit = async (data: alertAnimalFormType) => {
         const city = await handleUserData()
         let description = `${data.species}: ${data.name}. ${data.description}`
-        axios.post('http://192.168.56.1:3000/api/send-notification', {
+        axios.post('http://192.168.1.107:3000/api/send-notification', {
             title: 'Alerta de Animal desaparecido',
             city: city,
             body: description
         })
+        navigation.navigate("Home");
     }
-
+    
     return (
         <S.Container>
             <S.Form>
@@ -85,10 +91,10 @@ export const AnimalAlert = () => {
                     )}
                 />
                 <S.WrapperButton>
-                <S.BtnLogin onPress={handleSubmit(handleAlertSubmit)}>
-                    <S.Text>Emitir Alerta</S.Text>
-                </S.BtnLogin>
-            </S.WrapperButton>
+                    <S.BtnLogin onPress={handleSubmit(handleAlertSubmit)}>
+                        <S.Text>Emitir Alerta</S.Text>
+                    </S.BtnLogin>
+                </S.WrapperButton>
             </S.Form>
         </S.Container>
     )
