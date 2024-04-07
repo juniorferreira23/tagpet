@@ -7,12 +7,14 @@ import { About } from '../screen/About';
 import { useTranslate } from "../../../context/TranslateContext";
 import { useState } from "react";
 import { logoutFirebase } from '../../../service/firebase/logout';
+import { AnimalAlert } from '../screen/AnimalAlert';
 
 
 export type AdoptionDrawerParamList = {
     Home: undefined;
     RegisterAnimal: undefined;
     About: undefined;
+    AnimalAlert: undefined;
 }
 
 const CustomDrawerContent = (props: DrawerContentComponentProps) => {
@@ -70,6 +72,16 @@ export const HomeDrawer = () => {
                 options={{
                     drawerIcon: ({ color, size }) => <Feather name="info" color={color} size={size} />,
                     drawerLabel: 'Sobre',
+                    drawerActiveTintColor: '#5CB15A'
+                }}
+            />
+
+            <Drawer.Screen 
+                name='AnimalAlert'
+                component={AnimalAlert}
+                options={{
+                    drawerIcon: ({ color, size }) => <Feather name="info" color={color} size={size} />,
+                    drawerLabel: 'Alerta Animais desaparecidos',
                     drawerActiveTintColor: '#5CB15A'
                 }}
             />
