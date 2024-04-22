@@ -9,7 +9,7 @@ type Props = NativeStackScreenProps<AdoptionStackParamList, "AnimalDetails">;
 export const AnimalDetails = ({ route, navigation }: Props) => {
 
     const name = route.params.name
-    const gender = "female"
+    const gender = route.params.gender
     const owner = route.params.owner
     const age = route.params.age
     const month = route.params.month

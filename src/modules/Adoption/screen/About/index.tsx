@@ -1,11 +1,13 @@
-import { Text } from "react-native";
+import { Dimensions, Text } from "react-native";
 import * as S from "./styles";
 import { useTranslate } from "../../../../context/TranslateContext";
 import { texts } from "./mock";
+// import {responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions"
 
 
 export const About = () => {
     const { translateTo } = useTranslate();
+    // const { width, height } = Dimensions.get('screen');
     
     return (
         <S.Container>
@@ -23,6 +25,8 @@ export const About = () => {
             <Text>Lucas Maia Sivini - 01616874</Text>
             <Text>Jean Ricardo França da Silva - 01583760</Text>
             <Text>Matheus de Oliveira Lins Mendes Simes- 01618966</Text>
+            <Text>Gabriel Antônio Santos da Silva - 01625447</Text>
+            <Text>Anna Beatriz Santos Medeiros da Silva - 01334353</Text>
         </S.Container>
     )
 };
