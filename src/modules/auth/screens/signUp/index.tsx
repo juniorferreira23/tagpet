@@ -151,6 +151,7 @@ export const SignUp = ({ navigation }: Props) => {
                                 onChangeText={onChange}
                                 errorMessage={errors.password?.message}
                                 showError={!!errors.password}
+                                secureTextEntry
                             />
                         </S.WrapperInput>
                     )}
@@ -169,6 +170,7 @@ export const SignUp = ({ navigation }: Props) => {
                                 onChangeText={onChange}
                                 errorMessage={errors.confirm_password?.message}
                                 showError={!!errors.confirm_password}
+                                secureTextEntry
                             />
                         </S.WrapperInput>
                     )}

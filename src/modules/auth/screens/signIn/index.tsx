@@ -62,6 +62,7 @@ export const SignIn = ({navigation}: Props) => {
                                 onChangeText={onChange}
                                 errorMessage={errors.password?.message}
                                 showError={!!errors.password}
+                                secureTextEntry
                             />
                         </S.WrapperInput>
                     )}

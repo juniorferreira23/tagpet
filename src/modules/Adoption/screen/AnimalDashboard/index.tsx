@@ -1,12 +1,14 @@
 import { FlatList, Text, TouchableOpacity } from "react-native";
 import * as S from "./styles";
 import { IResponseAnimalByOwner, getByOwnerId } from "../../services/getData";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { useFocusEffect } from "@react-navigation/native";
 import { putAnimal } from "../../services/putData";
-
-export const AnimalDashboard = () => {
+import { DashboardStackParamList } from "../../routes/stack.routes";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+type Props = NativeStackScreenProps<DashboardStackParamList, "Dashboard">;
+export const AnimalDashboard = ({ navigation }: Props) => {
 
   const [animal, setAnimal] = useState<IResponseAnimalByOwner[]>([]);
 
@@ -31,11 +33,11 @@ export const AnimalDashboard = () => {
           </S.WrapperContent>
         </S.WrapperImagemAndContent>
         <S.WrapperIconsButtons>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("UpdateAnimal", { id: item.id })}>
             <Feather name="edit" color={"#D84F2A"} size={25} />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => putAnimal({adopted: true}, item.id)}
+            onPress={() => putAnimal({ adopted: true }, item.id)}
           >
             <Feather name="check-circle" color={"#0f6307"} size={25} />
           </TouchableOpacity>

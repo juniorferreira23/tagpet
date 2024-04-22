@@ -6,25 +6,35 @@ import { RegisterAnimal } from '../screen/RegisterAnimal';
 import { About } from '../screen/About';
 import { useTranslate } from "../../../context/TranslateContext";
 import { useState } from "react";
+import { logoutFirebase } from '../../../service/firebase/logout';
+import { AnimalAlert } from '../screen/AnimalAlert';
 
 
 export type AdoptionDrawerParamList = {
     Home: undefined;
     RegisterAnimal: undefined;
     About: undefined;
+    AnimalAlert: undefined;
 }
 
 const CustomDrawerContent = (props: DrawerContentComponentProps) => {
     const [state, setState] = useState(false);
-    const { toggleLanguage, translateTo } = useTranslate();
+    const { toggleLanguage } = useTranslate();
 
     return (
         <DrawerContentScrollView {...props}>
             <DrawerItemList {...props} />
-            <DrawerItem label={"Mudar para Idioma"} onPress={() => {
-                setState(!state);
-                toggleLanguage(!state)}} /> 
-            <DrawerItem label={"Sair"} onPress={() => console.log("Saiu")} /> 
+            <DrawerItem
+                label={"Mudar para Idioma"}
+                onPress={() => {
+                    setState(!state);
+                    toggleLanguage(!state)
+                }}
+            />
+            <DrawerItem
+                label={"Sair"}
+                onPress={() => logoutFirebase()}
+            />
         </DrawerContentScrollView>
     );
 }
@@ -36,7 +46,7 @@ export const HomeDrawer = () => {
         <Drawer.Navigator
             initialRouteName='Home'
             drawerContent={props => <CustomDrawerContent {...props} />}
-            screenOptions={{ title: ' '}}
+            screenOptions={{ title: ' ' }}
         >
             <Drawer.Screen
                 name="Home"
@@ -62,6 +72,16 @@ export const HomeDrawer = () => {
                 options={{
                     drawerIcon: ({ color, size }) => <Feather name="info" color={color} size={size} />,
                     drawerLabel: 'Sobre',
+                    drawerActiveTintColor: '#5CB15A'
+                }}
+            />
+
+            <Drawer.Screen 
+                name='AnimalAlert'
+                component={AnimalAlert}
+                options={{
+                    drawerIcon: ({ color, size }) => <Feather name="info" color={color} size={size} />,
+                    drawerLabel: 'Alerta Animais desaparecidos',
                     drawerActiveTintColor: '#5CB15A'
                 }}
             />

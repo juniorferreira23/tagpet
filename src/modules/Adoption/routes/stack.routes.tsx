@@ -1,6 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AnimalDetails } from "../screen/AnimalDetails";
 import { AdoptionDrawerParamList, HomeDrawer } from "./drawer.routes";
+import { UpdateAnimal } from "../screen/UpdateAnimal";
+import { AnimalDashboard } from "../screen/AnimalDashboard";
 
 export type AdoptionStackParamList = {
     HomeDrawer: AdoptionDrawerParamList
@@ -16,19 +18,45 @@ export type AdoptionStackParamList = {
     },
 }
 
-const Stack = createNativeStackNavigator<AdoptionStackParamList>();
+export type DashboardStackParamList = {
+    Dashboard: undefined;
+    UpdateAnimal: {
+        id: string;
+    },
+}
+
+const StackAd = createNativeStackNavigator<AdoptionStackParamList>();
+
 
 export const AdoptionStack = () => {
     return (
-        <Stack.Navigator initialRouteName="HomeDrawer" screenOptions={{ headerShown: false}}>
-            <Stack.Screen
+        <StackAd.Navigator initialRouteName="HomeDrawer" screenOptions={{ headerShown: false }}>
+            <StackAd.Screen
                 name="HomeDrawer"
                 component={HomeDrawer}
             />
-            <Stack.Screen
+            <StackAd.Screen
                 name="AnimalDetails"
                 component={AnimalDetails}
+                options={{headerShown: true}}
             />
-        </Stack.Navigator>
+        </StackAd.Navigator>
+    );
+}
+
+const StackDa = createNativeStackNavigator<DashboardStackParamList>();
+
+export const DashboardStack = () => {
+    return (
+        <StackDa.Navigator initialRouteName="Dashboard" screenOptions={{ headerShown: false }}>
+            <StackDa.Screen
+                name="Dashboard"
+                component={AnimalDashboard}
+            />
+            <StackDa.Screen
+                name="UpdateAnimal"
+                component={UpdateAnimal}
+            />
+        </StackDa.Navigator>
     );
 }

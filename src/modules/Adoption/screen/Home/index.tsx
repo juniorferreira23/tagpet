@@ -6,6 +6,7 @@ import { IResponseAnimal, getAnimal } from "../../services/getData";
 import { useEffect, useState } from "react";
 import { useTranslate } from "../../../../context/TranslateContext";
 import { texts } from "./mock";
+import { startNotifications } from "../../../../service/firebase/requestUserPermissionMessaging";
 
 
 type Props = DrawerScreenProps<AdoptionStackParamList, "Home">;
@@ -17,9 +18,12 @@ export const Home = ({ navigation }: Props) => {
         await getAnimal({setAnimals});
     }
 
+
     useEffect(() => {
         handlerAnimalsCloud();
+        startNotifications()
     }, [])
+
 
     const { translateTo } = useTranslate();
 

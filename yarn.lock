@@ -1892,6 +1892,11 @@
   resolved "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-19.0.0.tgz"
   integrity sha512-GZWW1K3xcfs2hGipnACyDbEf49mtSUP3mEeiAZgAileXdGhPfj/uWTfSuTT/XImfepUF1+uhMKlaiGdiQJR8Mw==
 
+"@react-native-firebase/messaging@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/messaging/-/messaging-19.0.0.tgz"
+  integrity sha512-KeGQHLhnDThCZZqWm67Qf4NI7qMsUF9eNbrJ39OFeqbinJK2TSQcTZcRPNwfwreCZfkkBdeV3sk0YNPoddlx/w==
+
 "@react-native-firebase/storage@19.0.0":
   version "19.0.0"
   resolved "https://registry.npmjs.org/@react-native-firebase/storage/-/storage-19.0.0.tgz"
@@ -5538,6 +5543,11 @@ react-native-gesture-handler@^2.16.0, "react-native-gesture-handler@>= 1.0.0":
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
+react-native-orientation-locker@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.npmjs.org/react-native-orientation-locker/-/react-native-orientation-locker-1.7.0.tgz"
+  integrity sha512-2PhG4UyRJktb3KCTISStuu8/q+Q3q3oPesGg9DhdY0b6Cu/ZzxkCvkbJte2TPWRYkS0JpClimvqVaonulGvDrA==
+
 react-native-reanimated@^3.8.1, "react-native-reanimated@>= 1.0.0":
   version "3.8.1"
   resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-3.8.1.tgz"
@@ -5552,6 +5562,11 @@ react-native-reanimated@^3.8.1, "react-native-reanimated@>= 1.0.0":
     convert-source-map "^2.0.0"
     invariant "^2.2.4"
 
+react-native-responsive-dimensions@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.npmjs.org/react-native-responsive-dimensions/-/react-native-responsive-dimensions-3.1.1.tgz"
+  integrity sha512-Vo2OhWsphq0HgKsmeZOeyW+c+vsFn1ZaCFkGDgdeCEEiLriT76jGA1JlUjtrj27hvyo/xzeTlBZ+vBso1A84fw==
+
 "react-native-safe-area-context@>= 3.0.0", react-native-safe-area-context@4.8.2:
   version "4.8.2"
   resolved "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-4.8.2.tgz"
@@ -5565,7 +5580,7 @@ react-native-reanimated@^3.8.1, "react-native-reanimated@>= 1.0.0":
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-react-native@*, react-native@0.73.4:
+react-native@*, react-native@>=0.44.1, react-native@>=0.63.2, react-native@0.73.4:
   version "0.73.4"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.73.4.tgz"
   integrity sha512-VtS+Yr6OOTIuJGDECIYWzNU8QpJjASQYvMtfa/Hvm/2/h5GdB6W9H9TOmh13x07Lj4AOhNMx3XSsz6TdrO4jIg==
@@ -5622,7 +5637,7 @@ react-shallow-renderer@^16.15.0:
     object-assign "^4.1.1"
     react-is "^16.12.0 || ^17.0.0 || ^18.0.0"
 
-react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18", react@^18.2.0, "react@>= 16.8.0", react@>=16.8, react@>=17.0.0, react@18.2.0:
+react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18", react@^18.2.0, "react@>= 16.8.0", react@>=16.13.1, react@>=16.8, react@>=17.0.0, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

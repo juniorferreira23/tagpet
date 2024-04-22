@@ -1,11 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AdoptionStack, AdoptionStackParamList } from "./stack.routes";
-import { AnimalDashboard } from "../screen/AnimalDashboard";
+import { AdoptionStack, AdoptionStackParamList, DashboardStack, DashboardStackParamList } from "./stack.routes";
 import { Feather } from "@expo/vector-icons";
 
 export type AdoptionTabParamList = {
     AdoptionStack: AdoptionStackParamList;
-    AnimalDashboard: undefined;
+    AnimalDashboard: DashboardStackParamList;
 }
 
 const Tab = createBottomTabNavigator<AdoptionTabParamList>();
@@ -28,7 +27,7 @@ export const AppTab = () => {
             />
             <Tab.Screen
                 name="AnimalDashboard"
-                component={AnimalDashboard}
+                component={DashboardStack}
                 options={{
                     tabBarIcon: ({ color, size }) => <Feather name="plus" color={color} size={size} />,
                     tabBarLabel: "Painel",
